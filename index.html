@@ -1,0 +1,48 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>Hangman Application</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+		<script src="app.js"></script>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body ng-app = "myApp" ng-controller = "Gamecontroller" class="jumbotron">
+		<div class="container-fluid">
+			<div class="display-3 center"><b>Hangman</b></div>
+			<hr class="my-4">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-2">
+					<div>
+						<img src="img/dislike.png" style="width:200px; height:200px"/> <h2 ng-repeat = "letter in incorrectLettersChosen">{{ letter }}</h2>
+					</div>
+				</div>
+				<div class="col-md-4 center">	
+					<div >
+						<h3>Guess a word</h3>
+					</div>				
+					<div>
+						<h5>Guesses Left :: {{ guesses }}</h5>
+					</div>
+					<div>
+						{{ displayWord }}
+					</div>
+					<div>
+						<input type= "text" name="guess" placeholder="Enter a word" ng-model="input.letter"/>
+					</div>
+					<div>
+					<br/>
+						<button class="btn btn-primary btn-md" ng-click= "letterChosen()">Submit</button>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div>
+						<img src="img/like.png" style="width:200px; height:200px"/> <h2 ng-repeat = "letter in correctLettersChosen">{{ letter }}</h2>
+					</div>
+				</div>
+				<div class="col-md-2"></div>
+				
+			</div>
+		</div>		
+	</body>
+</html>
